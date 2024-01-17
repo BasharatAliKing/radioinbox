@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .radio-container {
+      display: flex;
+    }
+
+    .radio-box {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #000;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .radio-box.selected {
+      background-color: #000;
+      color: #fff;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="radio-container">
+    <div class="radio-box" onclick="selectBox(1)">
+      <input type="radio" name="group" id="option1">
+    </div>
+
+    <div class="radio-box" onclick="selectBox(2)">
+      <input type="radio" name="group" id="option2">
+    </div>
+
+    <div class="radio-box" onclick="selectBox(3)">
+      <input type="radio" name="group" id="option3">
+    </div>
+
+    <div class="radio-box" onclick="selectBox(4)">
+      <input type="radio" name="group" id="option4">
+    </div>
+  </div>
+
+  <script>
+    function selectBox(boxNumber) {
+      const boxes = document.querySelectorAll('.radio-box');
+      boxes.forEach((box, index) => {
+        box.classList.toggle('selected', index + 1 === boxNumber);
+      });
+    }
+  </script>
+
+</body>
+</html>
